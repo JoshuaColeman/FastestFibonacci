@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FastestFibonacci.CoreLib\FastestFibonacci.CoreLib.csproj" />
+  </ItemGroup>
+
 </Project>
