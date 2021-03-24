@@ -29,5 +29,18 @@ namespace FastestFibonacci.Tests
             }
 
         }
+
+        [Fact]
+        public void RecursiveCaching_Implementation_Works()
+        {
+            var recursiveImpl = new RecursiveCachingFibonacciImpl();
+            for (ulong i = 0; i < (ulong)fibonacciValues.Length; ++i)
+            {
+                var expected = fibonacciValues[i];
+                var actual = recursiveImpl.CalculateFibonacci(i);
+                Assert.Equal(expected, actual);
+            }
+
+        }
     }
 }
