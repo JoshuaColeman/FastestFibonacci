@@ -37,8 +37,6 @@ namespace FastestFibonacci.CoreLib
             }
 
             return runningValue;
-
-         
         }
     }
 }
