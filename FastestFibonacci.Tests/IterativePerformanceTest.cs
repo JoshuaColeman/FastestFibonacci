@@ -43,5 +43,19 @@ namespace FastestFibonacci.Tests
             var recursiveImpl = new IterativeFibonacciImpl();
             recursiveImpl.CalculateFibonacci(15000);
         }
+
+        [Fact]
+        public void Calculate_Fibonacci_50000()
+        {
+            var recursiveImpl = new IterativeFibonacciImpl();
+            recursiveImpl.CalculateFibonacci(50000);
+        }
+
+        [Fact]
+        public void Calculate_Fibonacci_100000()
+        {
+            var recursiveImpl = new IterativeFibonacciImpl();
+            recursiveImpl.CalculateFibonacci(100000);
+        }
     }
 }
