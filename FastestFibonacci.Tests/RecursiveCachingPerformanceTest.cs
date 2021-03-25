@@ -13,7 +13,7 @@ namespace FastestFibonacci.Tests
         public void Calculate_Fibonacci_25()
         {
             var recursiveImpl = new RecursiveCachingFibonacciImpl();
-            recursiveImpl.CalculateFibonacci(5);
+            recursiveImpl.CalculateFibonacci(25);
         }
 
         [Fact]
@@ -36,5 +36,20 @@ namespace FastestFibonacci.Tests
             var recursiveImpl = new RecursiveCachingFibonacciImpl();
             recursiveImpl.CalculateFibonacci(500);
         }
+
+        [Fact]
+        public void Calculate_Fibonacci_12000()
+        {
+            var recursiveImpl = new RecursiveCachingFibonacciImpl();
+            recursiveImpl.CalculateFibonacci(12000);
+        }
+
+        // we start getting access violations at this point
+        //[Fact]
+        //public void Calculate_Fibonacci_20000()
+        //{
+        //    var recursiveImpl = new RecursiveCachingFibonacciImpl();
+        //    recursiveImpl.CalculateFibonacci(20000);
+        //}
     }
 }

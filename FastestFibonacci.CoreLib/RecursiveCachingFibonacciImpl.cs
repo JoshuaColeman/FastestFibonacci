@@ -12,7 +12,7 @@ namespace FastestFibonacci.CoreLib
     public class RecursiveCachingFibonacciImpl : IFibonacciCalculator
     {
         // Pregenerate the first two fibonacci values to cache or special cases
-        static Dictionary<ulong, ulong> CachedFibonacciValues = new Dictionary<ulong, ulong>
+        private readonly Dictionary<ulong, ulong> CachedFibonacciValues = new()
         {
             { 0, 0 },
             { 1, 1 }
