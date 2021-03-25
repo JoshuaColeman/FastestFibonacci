@@ -23,12 +23,12 @@ namespace FastestFibonacci.Tests
             recursiveImpl.CalculateFibonacci(40);
         }
 
-        [Fact]
-        public void Calculate_Fibonacci_45()
-        {
-            var recursiveImpl = new RecursiveFibonacciImpl();
-            recursiveImpl.CalculateFibonacci(45);
-        }
+        //[Fact]
+        //public void Calculate_Fibonacci_45()
+        //{
+        //    var recursiveImpl = new RecursiveFibonacciImpl();
+        //    recursiveImpl.CalculateFibonacci(45);
+        //}
 
         // Disabled since it's sooo slow
         //[Fact]

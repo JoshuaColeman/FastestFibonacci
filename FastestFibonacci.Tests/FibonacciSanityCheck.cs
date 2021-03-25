@@ -22,6 +22,12 @@ namespace FastestFibonacci.Tests
             Test_Fibonacci_Implementation(new RecursiveCachingFibonacciImpl());
         }
 
+        [Fact]
+        public void Iterative_Implementation_Works()
+        {
+            Test_Fibonacci_Implementation(new IterativeFibonacciImpl());
+        }
+
         private void Test_Fibonacci_Implementation(IFibonacciCalculator impl)
         {
             for (ulong i = 0; i < (ulong)fibonacciValues.Length; ++i)
