@@ -11,4 +11,4 @@ There is a CoreLib assembly, a UnitTest assembly currently, and a Blazor WebUI p
 
 The Iterative implementation is the most viable so far.
 
-I reccomend reviewing the unit tests to see the practical limits for values that I complete in this lifetime for the different implementations
+I reccomend reviewing the unit tests to see the practical limits for values that will complete in this lifetime for the different implementations
