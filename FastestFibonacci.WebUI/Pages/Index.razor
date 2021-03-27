@@ -1,0 +1,74 @@
+﻿@using FastestFibonacci.CoreLib
+@using System.Diagnostics
+@page "/"
+
+<h1>Fibonacci in WebAssembly</h1>
+
+<div>
+    <h5>Select Fibonacci Implementation:</h5>
+
+    <select class="form-control" @bind="SelectedImplementation">
+        <option selected value="Recursive">Recursive</option>
+        <option value="RecursiveCaching"> Recursive With Caching</option>
+        <option value="Iterative"> Iterative</option>
+    </select>
+</div>
+<br />
+<div>
+    <h5>Fibonacci Number to Calculate:</h5>
+</div>
+<div>
+    <input @bind="InputValue" />
+</div>
+<br />
+
+<div><button class="btn btn-primary" @onclick="CalculateFibonacci">Calculate Fibonacci</button></div>
+<br />
+
+<div hidden="@(!CalculatedFibonacciValue.HasValue)">
+    <div><h5>Fib(@CalculatedInputValue):</h5> @(CalculatedFibonacciValue.HasValue ? CalculatedFibonacciValue.Value : 0)</div>
+    <div><h5>Algorithm Used:</h5> @CalculatedWithImplementation</div>
+    <div><h5>Time to Calculate:</h5> @FibonacciCalculationTime</div>
+</div>
+
+@code {
+
+
+    private ulong CalculatedInputValue { get; set; }
+    private string CalculatedWithImplementation { get; set; }
+    private ulong? CalculatedFibonacciValue = null;
+
+    private string InputValue { get; set; } = "1";
+    private string SelectedImplementation = "Recursive";
+    private TimeSpan FibonacciCalculationTime;
+
+    private void CalculateFibonacci()
+    {
+        CalculatedInputValue = ulong.Parse(InputValue);
+
+        IFibonacciCalculator fibonacci = GetSelectedImplementation();
+
+        var stopWatch = new Stopwatch();
+        stopWatch.Start();
+
+        CalculatedFibonacciValue = fibonacci.CalculateFibonacci(CalculatedInputValue);
+
+        stopWatch.Stop();
+        FibonacciCalculationTime = stopWatch.Elapsed;
+    }
+
+    private IFibonacciCalculator GetSelectedImplementation()
+    {
+        switch (SelectedImplementation)
+        {
+            case "Recursive":
+                return new RecursiveFibonacciImpl();
+            case "RecursiveCaching":
+                return new RecursiveCachingFibonacciImpl();
+            case "Iterative":
+                return new IterativeFibonacciImpl();
+            default:
+                throw new InvalidOperationException("Unknown Implementation selected!?!?!?!");
+        }
+    }
+}
